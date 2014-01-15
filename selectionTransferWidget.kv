@@ -1,0 +1,77 @@
+<SelectionTransferWidget>:
+	size: root.size
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 400
+		center: root.center
+		
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/selection_background6.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			id: title
+			font_size: 30
+			color: 1, 0.6, 0, 1
+			text:'[b]Transfer images[/b]'
+			markup: True
+			size_hint_y: 0.4
+			pos_hint: {'center_x': .45}
+			
+		GridLayout:
+			cols: 3
+			spacing: 10
+			size_hint_y: 0.2
+			size_hint_x: 0.8
+			pos_hint: {'center_x': .4}
+			
+			Label:
+				font_size: 18
+				text: '(1) Transfer one at a time\n(2) Transfer all at once'
+				halign: 'left'
+			ToggleButton:
+				text: '(1)'
+				group: 'sharing'
+				id: toggle_button_1
+				size_hint_x: 0.2
+				state: 'down'
+				background_down: 'images/toggle_button.png'
+			ToggleButton:
+				text: '(2)'
+				group: 'sharing'
+				id: toggle_button_2
+				size_hint_x: 0.2
+				background_down: 'images/toggle_button.png'
+		
+		Label:
+			id: body
+			font_size: 20
+			text:'The option "Transfer one at a time" requires users to take turns while transferring their material to the tabletop.\n\n"Transfer all at once" allows users to transfer their material to the tabletop at the same time.'
+			markup: True
+			pos_hint: {'center_x': .45}
+			halign: 'center'
+			valign: 'middle'
+			text_size: self.parent.width - 100, self.parent.height - 100
+			
+		Button:
+			id: submit_button
+			text: 'Submit'
+			size_hint: .4, .3
+			pos_hint: {'center_x': .45}
+			on_press: root.submit_button()
+				

@@ -1,0 +1,48 @@
+<Selection1Widget>:
+	BoxLayout:
+		size: 500, 500
+		center: self.parent.center
+		orientation: 'vertical'
+	
+		canvas.before:
+			Color:
+				rgba: 0, 0, 0, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+		Label:
+			font_size: 20
+			text:'Stage 1: Sharing'
+		GridLayout:
+			cols: 2
+			
+			Label:
+				text: 'Disable touch interaction'
+			CheckBox:
+				id: checkbox_disable_interaction
+			Label:
+				text: 'Colour code ideas'
+			CheckBox:
+				id: checkbox_colour_code
+			Label:
+				text: '(1) Share one at a time'
+			CheckBox:
+				id: checkbox_share_one
+			Label:
+				text: '(2) Share all at once'
+			CheckBox:
+				id: checkbox_share_all
+			Label:
+				text: 'Stage duration'
+			Slider:
+				id: slider_duration
+				min: 0
+				max: 10
+				value: 5
+				step: 0.5
+		Button:
+			id: submit_button
+			text: 'Submit'
+			size_hint: 0.4, 0.5
+			on_press: root.submit_button()

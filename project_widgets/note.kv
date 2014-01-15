@@ -1,0 +1,38 @@
+#:kivy 1.6.0
+#:import kivy kivy
+
+<Note>:
+    label: label
+
+    size_hint: None, None
+    size: label.size
+
+    do_collide_after_children: True
+
+    ignore_dwell: False
+    ignore_double_tap: False
+    ignore_momentum: False
+
+    Label:
+        id: label
+        color: root.text_colour
+        text: root.text
+        size: 250, 150
+        pos: (18,0) if getattr(root.parent, "typename", None)=="VerticalScroller" else (0,0)
+        font_size: root.font_size
+
+        canvas.before:
+            Color:
+                rgba: root.border_colour
+            BorderImage:
+                source: 'images/assets/shadow32_transparent.png'
+                border: (36,36,36,36)
+                size:(self.width+72, self.height+72)
+                pos: (-36+18,-36) if getattr(root.parent, "typename", None)=="VerticalScroller" else (-36, -36)
+
+            Color:
+                rgba: root.colour
+            Rectangle:
+                size: self.size
+                pos: self.pos
+

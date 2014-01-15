@@ -1,0 +1,39 @@
+#:kivy 1.6.0
+#:import kivy kivy
+
+# -----------------------------------------------------------------------------------------
+
+# top level root of the application, holds the background of the application
+# that is all
+
+<ApplicationBackground>:
+    line_connections: line_connections
+
+    canvas:
+        Color:
+            rgba: self.background_colour
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: self.background_image
+
+    # Put the connections between objects (i.e. keyboards and text objects)
+    # behind all the other objects in the scene, also as a positive side effect
+    # since both co-ordinates are moved to the same transformation matrix
+    # the world, we don't get weird observer time jumps
+    FloatLayout:
+        id: line_connections
+
+    # tell me when the poster save is about to take place
+    Scatter:
+        do_translation: False
+        do_translation_x: False
+        do_translation_y: False
+        do_scale: False
+        do_rotation: False
+
+        Label:
+            pos: 1920-125,-30
+            text: "" if root.message is None else "Saving poster in {0}".format(root.message)
+
+# -----------------------------------------------------------------------------------------

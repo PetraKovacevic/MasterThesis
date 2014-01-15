@@ -1,0 +1,128 @@
+<Selection1Widget>:
+	size: root.size
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 400
+		center: root.center
+		
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/selection_background.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			font_size: 20
+			text:'[b]Stage 1: Sharing Information[/b]'
+			markup: True
+			#center: self.parent.center_x, self.parent.top - 20 
+			size_hint_y: 0.3
+			pos_hint: {'center_x': .5}
+			
+		GridLayout:
+			cols: 4
+			spacing: 10
+			size: 200, 100
+			center: self.parent.center
+			
+			Button:
+				background_normal: 'images/yellow_question_mark.png'
+				size_hint_x: 0.2
+			Label:
+				font_size: 18
+				text: '(1) Share one at a time\n(2) Share all at once'
+				halign: 'left'
+			ToggleButton:
+				text: '(1)'
+				group: 'sharing'
+				id: share_one_at_a_time
+				size_hint_x: 0.2
+				state: 'down'
+			ToggleButton:
+				text: '(2)'
+				group: 'sharing'
+				id: share_all_at_once
+				size_hint_x: 0.2
+			
+			Button:
+				background_normal: 'images/yellow_question_mark.png'
+				size_hint_x: 0.2
+			Label:
+				font_size: 18
+				text: 'Disable touch interaction'
+				halign: 'left'
+			ToggleButton:
+				text: 'Yes'
+				group: 'disable'
+				id: enable_interaction
+				size_hint_x: 0.2
+				state: 'down'
+			ToggleButton:
+				text: 'No'
+				group: 'disable'
+				id: disable_interaction
+				size_hint_x: 0.2
+			
+			Button:
+				background_normal: 'images/yellow_question_mark.png'	
+				size_hint_x: 0.2
+			Label:
+				font_size: 18
+				text: 'Colour code material'
+				halign: 'left'
+			ToggleButton:
+				text: 'Yes'
+				group: 'colour'
+				id: colour_code
+				size_hint_x: 0.2
+				state: 'down'
+			ToggleButton:
+				text: 'No'
+				group: 'colour'
+				id: no_colour_code
+				size_hint_x: 0.2
+
+		GridLayout:
+			cols: 5
+			size_hint_y: 0.3
+			
+			Button:
+				background_normal: 'images/yellow_question_mark.png'
+				size_hint_x: 0.2 
+			Label:
+				font_size: 18
+				text: 'Stage duration (minutes)'
+				halign: 'left'
+			Button:
+				text: '-'
+				on_press: root.reduce_time()
+				size_hint_x: 0.15	
+			Label:
+				id: stage_duration
+				text: str(root.stage_duration)
+				size_hint_x: 0.1
+			Button:
+				text: '+'
+				on_press: root.add_time()
+				size_hint_x: 0.15
+			
+		Button:
+			id: submit_button
+			text: 'Submit'
+			size_hint: .4, .3
+			pos_hint: {'center_x': .5}
+			on_press: root.submit_button()
+				

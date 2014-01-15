@@ -1,0 +1,43 @@
+#:kivy 1.6.0
+#:import kivy kivy
+
+<PosterBackground>:
+    size: image.size
+    size_hint: None, None
+    image: image
+    label: label
+
+    do_collide_after_children: True
+
+    ignore_dwell: False
+    ignore_double_tap: False
+    ignore_momentum: False
+
+    Image:
+        id: image
+        source: root.source
+
+        # shift 18 pixels to account for the left of a vertical scroller
+        pos: (18,0) if getattr(root.parent, "typename", None)=="VerticalScroller" else (0,0)
+
+        # create initial image to be 400 pixels in height
+        size: self.image_ratio*400, 400
+
+        # add shadow background
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            BorderImage:
+                source: 'images/assets/shadow32.png'
+                border: (36,36,36,36)
+                size:(self.width+72, self.height+72)
+                pos: (-36+18,-36) if getattr(root.parent, "typename", None)=="VerticalScroller" else (-36, -36)
+
+        # draw the filename (or a label) above the image
+        # account for whether in a vertical scroller or not
+        Label:
+            id: label
+            text: "" if root.description is None or root.draw_description is False else root.description
+            font_size: image.height/10 if getattr(root.parent, "typename", None)=="VerticalScroller" else 30
+            center: (image.center[0], image.height/20) if getattr(root.parent, "typename", None)=="VerticalScroller" else (image.center[0], -22)
+

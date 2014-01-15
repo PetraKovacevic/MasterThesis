@@ -1,0 +1,8 @@
+<RotateButton>:
+	canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            origin: self.center
+	canvas.after:
+        PopMatrix

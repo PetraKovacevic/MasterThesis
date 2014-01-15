@@ -1,0 +1,79 @@
+<Selection3KeyboardWidget>:
+	size: root.size
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 400
+		center: root.center
+		
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/selection_background6.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			id: title
+			font_size: 30
+			color: 1, 0.6, 0, 1
+			text:'[b]Keyboard Selection[/b]'
+			markup: True
+			#center: self.parent.center_x, self.parent.top - 20 
+			size_hint_y: 0.4
+			pos_hint: {'center_x': .45}
+			
+		GridLayout:
+			cols: 3
+			spacing: 10
+			center: self.parent.center
+			size_hint_y: 0.2
+			size_hint_x: 0.9
+			pos_hint: {'center_x': .45}
+			
+			Label:
+				font_size: 18
+				text: 'Do you want only one keyboard?'
+				halign: 'left'
+			ToggleButton:
+				text: 'Yes'
+				group: 'keyboard'
+				id: toggle_button_1
+				size_hint_x: 0.2
+				state: 'down'
+				background_down: 'images/toggle_button.png'
+			ToggleButton:
+				text: 'No'
+				group: 'keyboard'
+				id: toggle_button_2
+				size_hint_x: 0.2
+				background_down: 'images/toggle_button.png'
+		
+		Label:
+			id: body
+			font_size: 20
+			text:'You have the choice to choose whether each user can open a keyboard or if there will be only one keyboard for all users to share. The benefit of having only one keyboard is that it will create less clutter on the tabletop.'
+			markup: True
+			pos_hint: {'center_x': .45}
+			halign: 'justify'
+			valign: 'middle'
+			text_size: self.parent.width - 100, self.parent.height - 100
+			
+		Button:
+			id: submit_button
+			text: 'Submit'
+			size_hint: .4, .3
+			pos_hint: {'center_x': .45}
+			on_press: root.submit_button()
+				

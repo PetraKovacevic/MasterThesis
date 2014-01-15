@@ -1,0 +1,50 @@
+#:kivy 1.6.0
+#:import kivy kivy
+
+# -----------------------------------------------------------------------------------------
+
+# Wrap a vertical grid layout in a scrollview (moving stencil view) within a scatter
+<VerticalScroller>:
+    size_hint: None, None
+    size: scroller.size[0]+self.border_width, scroller.size[1]+self.border_width
+
+    scroller: scroller
+    items: items
+    #label: label
+
+    ignore_double_tap: True
+    ignore_dwell: True
+    ignore_momentum: False
+
+    canvas:
+        Color:
+            rgba: self.background_colour
+        Rectangle:
+            size: self.size
+            pos: 0,0
+            source: self.background_image
+
+    ScrollView:
+        id: scroller
+        size_hint: (None, None)
+        size: (self.parent.scrollview_width, self.parent.scrollview_height)
+        pos: self.parent.border_width/2.0, self.parent.border_width/2.0
+
+        GridLayout:
+            typename: "VerticalScroller"
+            id: items
+            rows: 1
+            # playing with the space around an item to show the border image
+            spacing: -15
+            size_hint_x: None
+
+    # draw the description above the scrollview widget
+    Label:
+        #id: label
+        # colour the heading orange
+        text: "" if root.description is None or root.draw_description is False else "[size=26][color=FF7F50]{0}[/color][/size]".format(root.description)
+        markup: True
+        pos: root.width/2 - self.size[0]/2, root.height-self.size[1]/4-43
+
+# -----------------------------------------------------------------------------------------
+

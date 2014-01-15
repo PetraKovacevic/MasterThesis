@@ -1,0 +1,88 @@
+<Selection2DisableWidget>:
+	size: root.size
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 400
+		center: root.center
+		
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/selection_background6.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			id: title
+			font_size: 25
+			color: 1, 0.6, 0, 1
+			text:"[b]If it's not your turn, you cannot interact with your material on the tabletop.[/b]"
+			markup: True
+			size_hint_y: 0.7
+			pos_hint: {'center_x': .45}
+			text_size: self.parent.width - 100, self.parent.height - 300
+			
+		#Label:
+		#	font_size: 18
+		#	text: "If it's not your turn, you cannot interact with your material on the tabletop."
+		#	pos_hint: {'center_x': .45}
+		#	halign: 'justify'
+		#	valign: 'middle'
+		#	size_hint_y: 0.3
+		#	text_size: self.parent.width - 100, self.parent.height - 100
+			
+		GridLayout:
+			cols: 2
+			spacing: 10
+			#center: self.parent.center
+			size_hint_y: 0.3
+			size_hint_x: 0.5
+			pos_hint: {'center_x': .45}
+			
+			#Label:
+			#	font_size: 18
+			#	text: "If it's not your turn, you cannot interact with your material on the tabletop."
+			#	halign: 'left'
+			ToggleButton:
+				text: 'Enable'
+				group: 'disable'
+				id: toggle_button_1
+			#	size_hint_x: 0.2
+				state: 'down'
+				background_down: 'images/toggle_button.png'
+			ToggleButton:
+				text: 'Disable'
+				group: 'disable'
+				id: toggle_button_2
+			#	size_hint_x: 0.2
+				background_down: 'images/toggle_button.png'
+		
+		Label:
+			id: body
+			font_size: 18
+			text:'This option is made to encourage users to listen to each other and not focus on others tasks.'
+			markup: True
+			pos_hint: {'center_x': .45}
+			halign: 'justify'
+			valign: 'middle'
+			text_size: self.parent.width - 100, self.parent.height - 100
+			
+		Button:
+			id: submit_button
+			text: 'Submit'
+			size_hint: .4, .3
+			pos_hint: {'center_x': .45}
+			on_press: root.submit_button()
+				

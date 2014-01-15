@@ -1,0 +1,7 @@
+# pycharm dynamic project files
+.idea/
+
+# ignore pre-compiled items
+*.pyc
+
+received_files/*
