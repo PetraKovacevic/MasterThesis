@@ -1,0 +1,39 @@
+<MessageWidget2>:
+	size: 500, 200
+	
+	canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            origin: self.center
+	
+        BorderImage:
+            border: 10, 10, 10, 10
+            source: 'images/message_background2.png'
+            pos: self.pos
+            size: self.size
+			
+	canvas.after:
+        PopMatrix
+	
+	BoxLayout:
+		orientation: 'vertical'
+		#padding: 10, 10, 20, 10
+		#spacing: 15
+		center: root.center
+		
+		Label:
+			#center: self.parent.center
+			font_size: 20
+			id: message_text
+			text: "Transfer images from your smartphone/tablet."
+			halign: "center"
+			valign: "top"
+			color: 0, 0, 0, 1
+			text_size: root.width - 100, root.height - 100
+			
+		
+		#Button:
+		#	text: "Press button to stop the clock!"
+		#	test_size: self.size
+		#	on_press: root.stop_clock()

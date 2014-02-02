@@ -1,0 +1,29 @@
+<ClockWidget>:
+	size: 100, 75
+	#center: 47.5, 708
+	
+	canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            origin: self.center
+
+		#Color:
+        #    rgba: 1, 1, 1, 1
+		#BorderImage:
+        #    border: 10, 10, 10, 10
+        #    source: 'images/clock_background.png'
+        #    pos: self.pos
+        #    size: self.size
+			
+	canvas.after:
+        PopMatrix
+	
+	Label:
+		id: clock_minute
+		text: "[ref=clock]{0}:{1}[/ref]".format(root.minutes, root.seconds)
+		markup: True
+		center: root.center
+		font_size: 26
+		color: 0, 1, 0, 1
+		on_ref_press: root.cancel_clock()

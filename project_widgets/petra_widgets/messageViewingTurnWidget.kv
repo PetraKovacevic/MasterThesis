@@ -1,0 +1,42 @@
+<MessageViewingTurnWidget>:
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 200
+		center: root.center
+	
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/message_background2.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			center: self.parent.center_x, self.parent.top - 50
+			id: message_text
+			font_size: 20
+			halign: "center"
+			pos_hint: {'center_x': 0.5}
+			text: 'User ' + root.user + ',\nit is your turn to show and tell!\nPress the "Start" button.'
+			color: 0, 0, 0, 1
+			
+		Button:
+			center: self.parent.center_x, self.parent.y + 40
+			size: 60, 40
+			background_color: 0, 1, 0, 1
+			font_size: 18
+			text: "Start"
+			size_hint_x: .45
+			pos_hint: {'center_x': 0.5}
+			on_press: root.ok_button()

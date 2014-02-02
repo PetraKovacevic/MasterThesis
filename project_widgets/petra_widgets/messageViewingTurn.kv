@@ -1,0 +1,35 @@
+<MessageViewingTurn>:
+	rotation: 0
+	size: 500, 200
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 200
+		center: root.center
+	
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/message_background2.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			id: message_text
+			font_size: 20
+			halign: "center"
+			#pos_hint: {'center_x': 0.5}
+			text: 'User ' + root.user + ',\nit is your turn to share your material with others!\nPress the "Start" button.'
+			color: 0, 0, 0, 1
+			
+		Button:
+			size: 60, 40
+			background_color: 0, 1, 0, 1
+			font_size: 18
+			text: "Start"
+			size_hint_x: .45
+			pos_hint: {'center_x': 0.45}
+			on_press: root.ok_button()

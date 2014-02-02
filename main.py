@@ -86,36 +86,36 @@ from kivy.clock import Clock
 from kivy.properties import NumericProperty
 from kivy.core.window import Window
 
-from Selection1Widget import Selection1Widget
-from selectionTransferWidget import SelectionTransferWidget
-from selectionDisableWidget import SelectionDisableWidget
-from selection2DisableWidget import Selection2DisableWidget
-from selectionColourWidget import SelectionColourWidget
-from selectionTimeWidget import SelectionTimeWidget
-from Selection2Widget import Selection2Widget
-from selection3Widget import Selection3Widget
-from nameTagWidget import NameTagWidget
-from messageWidget import MessageWidget
-from messageWidget2 import MessageWidget2
-from messageMoreTimeWidget import MessageMoreTimeWidget
-from moreTime import MoreTime
-from messageCancelClockWidget import MessageCancelClockWidget
-from messageClock import MessageClock
-from messageViewingTurnWidget import MessageViewingTurnWidget
-from messageViewingTurn import MessageViewingTurn
+from project_widgets.Selection1Widget import Selection1Widget
+from project_widgets.selectionTransferWidget import SelectionTransferWidget
+from project_widgets.selectionDisableWidget import SelectionDisableWidget
+from project_widgets.selection2DisableWidget import Selection2DisableWidget
+from project_widgets.selectionColourWidget import SelectionColourWidget
+from project_widgets.selectionTimeWidget import SelectionTimeWidget
+from project_widgets.Selection2Widget import Selection2Widget
+from project_widgets.selection3Widget import Selection3Widget
+from project_widgets.nameTagWidget import NameTagWidget
+from project_widgets.messageWidget import MessageWidget
+from project_widgets.messageWidget2 import MessageWidget2
+from project_widgets.messageMoreTimeWidget import MessageMoreTimeWidget
+from project_widgets.moreTime import MoreTime
+from project_widgets.messageCancelClockWidget import MessageCancelClockWidget
+from project_widgets.messageClock import MessageClock
+from project_widgets.messageViewingTurnWidget import MessageViewingTurnWidget
+from project_widgets.messageViewingTurn import MessageViewingTurn
 from utility_classes.dwell_functionality import *
-from clockWidget import ClockWidget
+from project_widgets.clockWidget import ClockWidget
 from project_widgets.vertical_scroller import VerticalScroller
 from project_widgets.picture import *
 from project_widgets.note import Note
 from project_widgets.poster_keyboard import PosterKeyboard
-from rotateButton import RotateButton
+from project_widgets.rotateButton import RotateButton
 from project_widgets.application_background import ApplicationBackground
 from project_widgets.poster_background import PosterBackground
-from stage1MessageWidget import Stage1MessageWidget
-from chooseWidget import ChooseWidget
-from stage3MessageWidget import Stage3MessageWidget
-from selection3KeyboardWidget import Selection3KeyboardWidget
+from project_widgets.stage1MessageWidget import Stage1MessageWidget
+from project_widgets.chooseWidget import ChooseWidget
+from project_widgets.stage3MessageWidget import Stage3MessageWidget
+from project_widgets.selection3KeyboardWidget import Selection3KeyboardWidget
 
 from functools import partial
 from random import randint
@@ -124,7 +124,7 @@ from random import randint
 
 print "The current path is :" + current_path_directory + "-------------------------------------------"
 # Load the .kv files
-Builder.load_file(current_path_directory + '\selection1Widget.kv')
+'''Builder.load_file(current_path_directory + '\selection1Widget.kv')
 Builder.load_file(current_path_directory + '\selection2Widget.kv')
 Builder.load_file(current_path_directory + '\selection3Widget.kv')
 Builder.load_file(current_path_directory + '\\nameTagWidget.kv')
@@ -147,7 +147,7 @@ Builder.load_file(current_path_directory + os.sep + 'backgroundColorWidget.kv')
 Builder.load_file(current_path_directory + os.sep + 'messageClock.kv')
 Builder.load_file(current_path_directory + os.sep + 'ChooseWidget.kv')
 Builder.load_file(current_path_directory + os.sep + 'stage3MessageWidget.kv')
-Builder.load_file(current_path_directory + os.sep + 'selection3KeyboardWidget.kv')
+Builder.load_file(current_path_directory + os.sep + 'selection3KeyboardWidget.kv')'''
 
 
 ## Hard coded information about user name tag locations (center + angle) and user colours

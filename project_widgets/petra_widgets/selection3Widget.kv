@@ -1,0 +1,66 @@
+<Selection3Widget>:
+	size: root.size
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.7
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 10, 10, 20, 10
+		spacing: 10
+		size: 500, 400
+		center: root.center
+		
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/selection_background6.png'
+				pos: self.pos
+				size: self.size
+				
+		Label:
+			font_size: 30
+			color: 1, 0.6, 0, 1
+			text:'[b]Stage 3: Poster Creation[/b]'
+			markup: True
+			size_hint_y: 0.4
+			pos_hint: {'center_x': .5}
+		
+		GridLayout:
+			cols: 2
+			center: self.parent.center
+			pos_hint: {'center_x': .4}
+			
+			Image:
+				source: 'images/note.png'
+			Label:
+				font_size: 18
+				text:'Tap on the note image next\nto your nametag to create a note'
+				halign: 'justify'
+				
+			Image:
+				source: 'images/keyboard.png'
+			Label:
+				font_size: 18
+				text:'Tap on the keyboard image next\nto your nametag to open a keyboard'
+				halign: 'justify'
+				
+		Label:
+			font_size: 20
+			halign: "center"
+			size_hint_y: 0.3
+			pos_hint: {'center_x': 0.5}
+			text: 'Drag the keyboard over the note to link them.'
+			
+		Button:
+			id: submit_button
+			text: 'OK'
+			size_hint: 0.4, 0.3
+			on_press: root.submit_button()
+			pos_hint: {'center_x': .5}
+				

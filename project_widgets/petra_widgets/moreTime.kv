@@ -1,0 +1,44 @@
+<MoreTime>:
+	rotation: 0
+	size: 500, 200			
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 20, 10, 20, 10
+		spacing: 10
+		size: 500, 200
+		center: root.center
+	
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+			BorderImage:
+				border: 10, 10, 10, 10
+				source: 'images/message_background2.png'
+				pos: self.pos
+				size: self.size
+		
+		Label:
+			#center_x: self.parent.center_x
+			#top: root.top - 10
+			id: message_text
+			font_size: 20
+			text: "Do you need more time?"
+			color: 0, 0, 0, 1
+		
+		GridLayout:
+			cols: 2
+			spacing: 10
+			size_hint_x: .5
+			size_hint_y: .5
+			pos_hint: {'center_x': .45}
+			#center: self.parent.center
+
+			Button:
+				background_color: 0, 1, 0, 1
+				text: "Yes"
+				on_press: root.on_yes_button()
+				
+			Button:
+				background_color: 1, 0, 0, 1
+				text: "No"
+				on_press: root.on_no_button()
